@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/gray" >
+
+    <RelativeLayout
+        android:id="@+id/logo_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dip"
+        android:layout_marginRight="25dip"
+        android:layout_marginTop="50dip" >
+
+        <ImageView
+            android:id="@+id/logoView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo_successfactors" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/login_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="15dip"
+        android:paddingBottom="15dip"
+        android:layout_below="@id/logo_layout"
+        android:background="@drawable/bg_round_corner" >
+
+        <LinearLayout
+            android:id="@+id/email_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="12dip"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/LoginIDx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_email"
+                android:textColor="@color/grey"
+                android:textSize="18dip" />
+
+            <EditText
+                android:id="@+id/LoginID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:background="@null"
+                android:singleLine="true"
+                android:hint="@string/login_email_hint"
+                android:textSize="18dip" />
+        </LinearLayout>
+
+        <View android:id="@+id/line_separated"
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+             android:layout_marginBottom="12dip"
+            android:layout_marginTop="12dip"
+            android:layout_below="@id/email_layout"
+            android:background="@color/gray"/>
+        
+        <LinearLayout
+            android:id="@+id/password_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line_separated"
+            android:layout_marginBottom="12dip"
+            android:layout_marginLeft="10dip"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/PassWordx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_password"
+                android:textColor="@color/grey"
+                android:textSize="18dip" />
+
+            <EditText
+                android:id="@+id/PassWord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:background="@null"
+                android:lines="1"
+                android:password="true"
+                android:singleLine="true"
+                android:hint="@string/login_password_hint"
+                android:textSize="18dip" />
+        </LinearLayout>
+    </RelativeLayout>
+    
+<LinearLayout  
+    	android:id = "@+id/login_options"
+        android:layout_width="fill_parent"  
+        android:layout_height="wrap_content"  
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="10dip"
+        android:layout_below = "@id/login_layout"
+        android:orientation="horizontal" >  
+        <LinearLayout  
+            android:layout_width="wrap_content"  
+            android:layout_height="fill_parent"  
+            android:orientation="vertical" >  
+            <CheckBox  
+                android:id="@+id/checkbox"  
+                android:layout_width="wrap_content"  
+                android:layout_height="wrap_content"  
+                android:text="@string/login_forget_pwd" />  
+        </LinearLayout>  
+        <LinearLayout  
+            android:layout_width="fill_parent"  
+            android:layout_height="fill_parent"  
+            android:orientation="vertical" 
+            android:gravity="center">  
+            <Button  
+                android:id="@+id/btn_login"  
+                android:layout_width="wrap_content"  
+                android:layout_height="wrap_content"  
+                android:layout_gravity="center"  
+                android:background="@drawable/beauty_btn"
+                android:text="@string/login_button" />  
+        </LinearLayout>  
+    </LinearLayout>  
+    
+    
+  <RelativeLayout
+        android:id="@+id/tips_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_below ="@id/login_options"
+        android:layout_marginTop="15dip" >
+
+        <ImageView
+            android:id="@+id/tipsimg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true" />
+        <TextView
+            android:id="@+id/Tips1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:layout_toRightOf="@id/tipsimg"
+            android:text="@string/login_help"
+            android:textColor="@color/black"
+            android:textSize="16dip" />
+  
+        <TextView
+            android:id="@+id/Tipstxt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Tips1"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:text="@string/login_help_first"
+            android:textColor="@color/black"
+            android:textSize="14dip" />
+        
+         <TextView
+            android:id="@+id/Tipstxt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Tipstxt1"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:text="@string/login_help_second"
+            android:textColor="@color/black"
+            android:textSize="14dip" />
+        
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+    
+    <ImageView android:id="@+id/recommendBookImage"
+        android:layout_width="80dip"
+        android:layout_height="100dip"
+        android:contentDescription="@string/hello_world"
+        android:layout_marginLeft="0dip"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="5dip"/>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    
+    	<TextView
+        android:id="@+id/recommendBookName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:layout_marginTop="5dip"
+        android:textStyle="bold"
+        />
+    
+    	<TextView
+        android:id="@+id/recommendBookAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:layout_marginTop="5dip"
+        android:textColor="@color/grey"
+        />
+    	
+    	<TextView
+        android:id="@+id/recommendRecUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="5dip"
+        android:textColor="@color/grey"
+        />
+
+    
+    	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:paddingLeft="5dip">
+    		<ImageView android:id="@+id/recommendBookHot1"
+    		    android:layout_width="15dip"
+    		    android:layout_height="15dip"
+    		    android:src="@drawable/burn" 
+    		    android:contentDescription="@string/hello_world"/>
+    	    <ImageView android:id="@+id/recommendBookHot2"
+    		    android:layout_width="15dip"
+    		    android:layout_height="15dip"
+    		    android:src="@drawable/burn" 
+    		    android:contentDescription="@string/hello_world"/>
+    	    <ImageView android:id="@+id/recommendBookHot3"
+    		    android:layout_width="15dip"
+    		    android:layout_height="15dip"
+    		    android:src="@drawable/burn" 
+    		    android:contentDescription="@string/hello_world"/>
+    	    <ImageView android:id="@+id/recommendBookHot4"
+    		    android:layout_width="15dip"
+    		    android:layout_height="15dip"
+    		    android:src="@drawable/burn" 
+    		    android:contentDescription="@string/hello_world"/>
+    	    <ImageView android:id="@+id/recommendBookHot5"
+    		    android:layout_width="15dip"
+    		    android:layout_height="15dip"
+    		    android:src="@drawable/burn" 
+    		    android:contentDescription="@string/hello_world"/>
+    	    
+    	</LinearLayout>
+    
+    </LinearLayout>
+</LinearLayout>

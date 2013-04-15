@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dip"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:paddingTop="5dip"
+        android:background="@color/black" >
+
+	<RelativeLayout
+	    android:layout_width="0px"
+	    android:focusableInTouchMode="true"
+	    android:layout_height="0px"
+	    android:focusable="true" >
+</RelativeLayout>
+        <EditText
+            android:id="@+id/search_field"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textfield_black"
+            android:imeOptions="actionDone"
+            android:inputType="textFilter|textNoSuggestions"
+            android:hint="请输入搜索书目"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/browser_lv"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/top_layout"
+        android:listSelector="@android:color/transparent" >
+    </ListView>
+
+</RelativeLayout>
