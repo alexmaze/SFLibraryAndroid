@@ -16,6 +16,7 @@ import junit.framework.Assert;
 
 import org.apache.http.NameValuePair;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -68,7 +69,8 @@ public final class UrlImageViewHelper {
         mResources = new Resources(mgr, mMetrics, context.getResources().getConfiguration());
     }
 
-    private static Drawable loadDrawableFromStream(final Context context, final String url, final String filename, final int targetWidth, final int targetHeight) {
+    @SuppressLint("DefaultLocale")
+	private static Drawable loadDrawableFromStream(final Context context, final String url, final String filename, final int targetWidth, final int targetHeight) {
         prepareResources(context);
 
 //        Log.v(Constants.LOGTAG,targetWidth);
@@ -710,7 +712,8 @@ public final class UrlImageViewHelper {
         
         // kill this zombie, forever.
         private boolean mHeadshot = false;
-        public void headshot() {
+        @SuppressWarnings("unused")
+		public void headshot() {
             mHeadshot = true;
         }
     }
