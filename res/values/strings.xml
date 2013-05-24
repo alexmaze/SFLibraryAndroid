@@ -7,8 +7,8 @@
     <string name="login_password">密码</string>
     <string name="login_button">登录</string>
     <string name="login_forget_pwd">保存密码</string>
-    <string name="login_email_hint">  email address</string>
-    <string name="login_password_hint">  password</string>
+    <string name="login_email_hint">  Email Address</string>
+    <string name="login_password_hint">  Password</string>
     <string name="login_help">贴心小提醒</string>
     <string name="login_help_second">2. 默认密码是 123456</string>
     <string name="login_help_first">1. 账号为公司邮箱地址</string>

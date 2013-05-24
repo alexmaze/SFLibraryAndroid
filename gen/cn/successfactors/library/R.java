@@ -12,6 +12,7 @@ public final class R {
     }
     public static final class color {
         public static final int black=0x7f040001;
+        public static final int google_now_background_color=0x7f040005;
         public static final int gray=0x7f040004;
         public static final int grey=0x7f040002;
         public static final int silver=0x7f040003;

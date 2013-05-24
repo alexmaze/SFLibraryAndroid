@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/gray" >
+    android:background="@color/google_now_background_color" >
 
     <RelativeLayout
         android:id="@+id/logo_layout"
@@ -121,13 +121,16 @@
             android:layout_height="fill_parent"  
             android:orientation="vertical" 
             android:gravity="center">  
-            <Button  
-                android:id="@+id/btn_login"  
-                android:layout_width="wrap_content"  
-                android:layout_height="wrap_content"  
-                android:layout_gravity="center"  
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="60dp"
                 android:background="@drawable/beauty_btn"
-                android:text="@string/login_button" />  
+                android:text="@string/login_button" />
+  
         </LinearLayout>  
     </LinearLayout>  
     
@@ -145,14 +148,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true" />
+
         <TextView
             android:id="@+id/Tips1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dip"
+            android:layout_marginTop="20dp"
             android:layout_toRightOf="@id/tipsimg"
             android:text="@string/login_help"
-            android:textColor="@color/black"
+            android:textColor="@color/grey"
             android:textSize="16dip" />
   
         <TextView
@@ -163,7 +168,7 @@
             android:layout_marginLeft="5dip"
             android:layout_marginTop="5dip"
             android:text="@string/login_help_first"
-            android:textColor="@color/black"
+            android:textColor="@color/grey"
             android:textSize="14dip" />
         
          <TextView
@@ -174,7 +179,7 @@
             android:layout_marginLeft="5dip"
             android:layout_marginTop="5dip"
             android:text="@string/login_help_second"
-            android:textColor="@color/black"
+            android:textColor="@color/grey"
             android:textSize="14dip" />
         
     </RelativeLayout>
