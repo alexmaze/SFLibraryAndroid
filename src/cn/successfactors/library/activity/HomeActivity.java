@@ -1,113 +1,236 @@
 
 package cn.successfactors.library.activity;
 
-import android.app.AlertDialog;
-import android.app.TabActivity;
-import android.content.DialogInterface;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
+import android.app.LocalActivityManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.os.Bundle;
-import android.view.KeyEvent;
-import android.view.Window;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.os.Parcelable;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.DisplayMetrics;
+import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 import android.widget.TabHost;
-import android.widget.TabHost.TabSpec;
+import android.widget.TextView;
 import cn.successfactors.library.R;
 
-public class HomeActivity extends TabActivity implements OnCheckedChangeListener {
-    private TabHost mTabHost;
-    boolean isDialogOn;
-    private RadioGroup mainTab;
+@SuppressWarnings("deprecation")
+public class HomeActivity extends Activity {
+	Context context = null;
+	LocalActivityManager manager = null;
+	ViewPager pager = null;
+	TabHost tabHost = null;
+	TextView t1, t2, t3, t4;
+	private int offset = 0;// 动画图片偏移量
+	private int currIndex = 0;// 当前页卡编号
+	private int bmpW;// 动画图片宽度
+	private ImageView cursor;// 动画图片
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);// hidden title
-        setContentView(R.layout.activity_home);
-        mainTab = (RadioGroup)findViewById(R.id.main_tab);
-        mainTab.setOnCheckedChangeListener(this);
-        initTabs();
-    }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		context = HomeActivity.this;
+		manager = new LocalActivityManager(this, true);
+		manager.dispatchCreate(savedInstanceState);
+		InitImageView();
+		initTextView();
+		initPagerViewer();
+	}
 
-    private void initTabs() {
-        this.mTabHost = getTabHost();
+	/** * 初始化标题 */
+	private void initTextView() {
+		t1 = (TextView) findViewById(R.id.text1);
+		t2 = (TextView) findViewById(R.id.text2);
+		t3 = (TextView) findViewById(R.id.text3);
+		t4 = (TextView) findViewById(R.id.text4);
+		t1.setOnClickListener(new MyOnClickListener(0));
+		t2.setOnClickListener(new MyOnClickListener(1));
+		t3.setOnClickListener(new MyOnClickListener(2));
+		t4.setOnClickListener(new MyOnClickListener(3));
+	}
 
-        TabSpec tabSpecApple = mTabHost
-                .newTabSpec("browser")
-                .setIndicator(this.getResources().getString(R.string.home_browser),
-                        getResources().getDrawable(R.drawable.icon_1_n))
-                .setContent(new Intent(this, BrowserActivity.class));
-        mTabHost.addTab(tabSpecApple);
+	/** * 初始化PageViewer */
+	private void initPagerViewer() {
+		pager = (ViewPager) findViewById(R.id.viewpage);
+		final ArrayList<View> list = new ArrayList<View>();
 
-        mTabHost.addTab(mTabHost
-                .newTabSpec("borrow")
-                .setIndicator(this.getResources().getString(R.string.home_borrow),
-                        getResources().getDrawable(R.drawable.icon_2_n))
-                .setContent(new Intent(this, BorrowActivity.class)));
+		Intent intent = new Intent(context, BrowserActivity.class);
+		list.add(getView("A", intent));
 
-        mTabHost.addTab(mTabHost
-                .newTabSpec("reservation")
-                .setIndicator(this.getResources().getString(R.string.home_reservation),
-                        getResources().getDrawable(R.drawable.icon_3_n))
-                .setContent(new Intent(this, ReservationActivity.class)));
+		Intent intent2 = new Intent(context, BorrowActivity.class);
+		list.add(getView("B", intent2));
 
-        mTabHost.addTab(mTabHost
-                .newTabSpec("recommand")
-                .setIndicator(this.getResources().getString(R.string.home_recommand),
-                        getResources().getDrawable(R.drawable.icon_4_n))
-                .setContent(new Intent(this, RecommendActivity.class)));
-        mTabHost.setCurrentTab(0);
-        ((RadioButton)findViewById(R.id.radio_button0)).setChecked(true);
-    }
+		Intent intent3 = new Intent(context, ReservationActivity.class);
+		list.add(getView("C", intent3));
+		
+		Intent intent4 = new Intent(context, RecommendActivity.class);
+		list.add(getView("D", intent4));
 
-    
-    @Override
-	public void onCheckedChanged(RadioGroup group, int checkedId) {
-        switch(checkedId){
-        case R.id.radio_button0:
-            this.mTabHost.setCurrentTabByTag("browser");
-            break;
-        case R.id.radio_button1:
-            this.mTabHost.setCurrentTabByTag("borrow");
-            break;
-        case R.id.radio_button2:
-            this.mTabHost.setCurrentTabByTag("reservation");
-            break;
-        case R.id.radio_button3:
-            this.mTabHost.setCurrentTabByTag("recommand");
-            break;      
-        }
-    }
+		pager.setAdapter(new MyPagerAdapter(list));
+		pager.setCurrentItem(0);
+		pager.setOnPageChangeListener(new MyOnPageChangeListener());
+	}
 
-    @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-          if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
-              if(!isDialogOn) {
-                  isDialogOn =true;
-                  showExitGameAlert();
-              }else {
-                  isDialogOn=false;
-                  return true;
-              }
-          }
-          return super.dispatchKeyEvent(event);
-       }
+	/** * 初始化动画 */
+	private void InitImageView() {
+		cursor = (ImageView) findViewById(R.id.cursor);
+		bmpW = BitmapFactory.decodeResource(getResources(), R.drawable.roller)
+				.getWidth();// 获取图片宽度
+		DisplayMetrics dm = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(dm);
+		int screenW = dm.widthPixels;// 获取分辨率宽度
+		offset = (screenW / 4 - bmpW) / 2;// 计算偏移量
+		Matrix matrix = new Matrix();
+		matrix.postTranslate(offset, 0);
+		cursor.setImageMatrix(matrix);// 设置动画初始位置
+	}
 
-    private void showExitGameAlert() {
-        new AlertDialog.Builder(HomeActivity.this).setTitle("系统提示").setMessage("确定要退出应用程序吗？")
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialoginterface, int i) {
-                        HomeActivity.this.finish();
-                        System.exit(1);
-                        isDialogOn = false;
-                    }
-                }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialoginterface, int i) {
-                        // do nothing
-                        isDialogOn = false;
-                    }
-                }).show();
-    }
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.activity_book_detail, menu);
+		return true;
+	}
+
+	/** * 通过activity获取视图 * @param id * @param intent * @return */
+
+	private View getView(String id, Intent intent) {
+		return manager.startActivity(id, intent).getDecorView();
+	}
+
+	/** * Pager适配器 */
+
+	public class MyPagerAdapter extends PagerAdapter {
+		List<View> list = new ArrayList<View>();
+
+		public MyPagerAdapter(ArrayList<View> list) {
+			this.list = list;
+		}
+
+		@Override
+		public void destroyItem(ViewGroup container, int position, Object object) {
+			ViewPager pViewPager = ((ViewPager) container);
+			pViewPager.removeView(list.get(position));
+		}
+
+		@Override
+		public boolean isViewFromObject(View arg0, Object arg1) {
+			return arg0 == arg1;
+		}
+
+		@Override
+		public int getCount() {
+			return list.size();
+		}
+
+		@Override
+		public Object instantiateItem(View arg0, int arg1) {
+			ViewPager pViewPager = ((ViewPager) arg0);
+			pViewPager.addView(list.get(arg1));
+			return list.get(arg1);
+		}
+
+		@Override
+		public void restoreState(Parcelable arg0, ClassLoader arg1) {
+		}
+
+		@Override
+		public Parcelable saveState() {
+			return null;
+		}
+
+		@Override
+		public void startUpdate(View arg0) {
+		}
+	}
+
+	/** * 页卡切换监听 */
+	public class MyOnPageChangeListener implements OnPageChangeListener {
+		int one = offset * 2 + bmpW;// 页卡1 -> 页卡2 偏移量
+		int two = one * 2;// 页卡1 -> 页卡3 偏移量
+		int three = one * 3;// 页卡1 -> 页卡4 偏移量
+
+		@Override
+		public void onPageSelected(int arg0) {
+			Animation animation = null;
+			switch (arg0) {
+			case 0:
+				if (currIndex == 1) {
+					animation = new TranslateAnimation(one, 0, 0, 0);
+				} else if (currIndex == 2) {
+					animation = new TranslateAnimation(two, 0, 0, 0);
+				} else if (currIndex == 3) {
+					animation = new TranslateAnimation(three, 0, 0, 0);
+				}
+				break;
+			case 1:
+				if (currIndex == 0) {
+					animation = new TranslateAnimation(offset, one, 0, 0);
+				} else if (currIndex == 2) {
+					animation = new TranslateAnimation(two, one, 0, 0);
+				} else if (currIndex == 3) {
+					animation = new TranslateAnimation(three, one, 0, 0);
+				}
+				break;
+			case 2:
+				if (currIndex == 0) {
+					animation = new TranslateAnimation(offset, two, 0, 0);
+				} else if (currIndex == 1) {
+					animation = new TranslateAnimation(one, two, 0, 0);
+				} else if (currIndex == 3) {
+					animation = new TranslateAnimation(three, two, 0, 0);
+				}
+				break;
+			case 3:
+				if (currIndex == 0) {
+					animation = new TranslateAnimation(offset, three, 0, 0);
+				} else if (currIndex == 1) {
+					animation = new TranslateAnimation(one, three, 0, 0);
+				} else if (currIndex == 2) {
+					animation = new TranslateAnimation(two, three, 0, 0);
+				}
+				break;
+			}
+			currIndex = arg0;
+			animation.setFillAfter(true);// True:图片停在动画结束位置
+			animation.setDuration(300);
+			cursor.startAnimation(animation);
+		}
+
+		@Override
+		public void onPageScrollStateChanged(int arg0) {
+		}
+
+		@Override
+		public void onPageScrolled(int arg0, float arg1, int arg2) {
+		}
+	}
+
+	/** * 头标点击监听 */
+	public class MyOnClickListener implements View.OnClickListener {
+		private int index = 0;
+
+		public MyOnClickListener(int i) {
+			index = i;
+		}
+
+		@Override
+		public void onClick(View v) {
+			pager.setCurrentItem(index);
+		}
+	};
+
 
 }

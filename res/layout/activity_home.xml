@@ -1,52 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@android:id/tabhost"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    android:orientation="vertical" >
+
     <LinearLayout
-    	android:orientation="vertical"
-    	android:layout_width="fill_parent"
-    	android:layout_height="fill_parent">
-    	<FrameLayout 
-    		android:id="@android:id/tabcontent"
-    		android:layout_width="fill_parent"
-    		android:layout_height="0.0dip"
-    		android:layout_weight="1.0"/>
-    	<TabWidget 
-    		android:id="@android:id/tabs"
-    		android:layout_width="fill_parent"
-    		android:layout_height="wrap_content"
-    		android:layout_weight="0.0"
-    		android:visibility="gone"/>
-    	<RadioGroup
-    		android:id="@+id/main_tab"
-    		android:background="@drawable/maintab_toolbar_bg"
-    		android:orientation="horizontal"
-    		android:layout_width="fill_parent"
-    		android:layout_height="wrap_content"
-    		android:gravity="center_vertical"
-    		android:layout_gravity="bottom">
-    		<RadioButton 
-    			android:text="@string/home_browser"
-    			android:drawableTop="@drawable/icon_1_n"
-    			android:id="@+id/radio_button0"
-    			style="@style/main_tab_bottom"/>
-    		<RadioButton 
-    			android:text="@string/home_borrow"
-    			android:drawableTop="@drawable/icon_2_n"
-    			android:id="@+id/radio_button1"
-    			style="@style/main_tab_bottom"/>
-    		<RadioButton 
-    			android:text="@string/home_reservation"
-    			android:drawableTop="@drawable/icon_3_n"
-    			android:id="@+id/radio_button2"
-    			style="@style/main_tab_bottom"/>
-    		<RadioButton 
-    			android:text="@string/home_recommand"
-    			android:drawableTop="@drawable/icon_4_n"
-    			android:id="@+id/radio_button3"
-    			style="@style/main_tab_bottom"/>
-    	</RadioGroup>
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="40.0dip"
+        android:background="#EEEEEE" >
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="@string/home_browser"
+            android:textColor="#000000"
+            android:textSize="18.0dip" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="@string/home_borrow"
+            android:textColor="#000000"
+            android:textSize="18.0dip" />
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="@string/home_reservation"
+            android:textColor="#000000"
+            android:textSize="18.0dip" />
+
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="@string/home_recommand"
+            android:textColor="#000000"
+            android:textSize="18.0dip" />
     </LinearLayout>
-</TabHost>
+
+    <ImageView
+        android:id="@+id/cursor"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#EEEEEE"
+        android:scaleType="matrix"
+        android:src="@drawable/roller" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
