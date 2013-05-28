@@ -30,6 +30,7 @@
                 android:id="@+id/browserBookImageA"
                 android:layout_width="106dp"
                 android:layout_height="144dp"
+                android:scaleType="centerInside"
                 android:src="@drawable/temp_book_1" />
 
             <TextView
@@ -69,6 +70,7 @@
                 android:id="@+id/browserBookImageB"
                 android:layout_width="106dp"
                 android:layout_height="144dp"
+                android:scaleType="centerInside"
                 android:src="@drawable/temp_book_1" />
 
             <TextView
@@ -107,6 +109,7 @@
                 android:id="@+id/browserBookImageC"
                 android:layout_width="106dp"
                 android:layout_height="144dp"
+                android:scaleType="centerInside"
                 android:src="@drawable/temp_book_1" />
 
             <TextView

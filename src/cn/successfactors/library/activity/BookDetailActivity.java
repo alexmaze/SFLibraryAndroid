@@ -36,7 +36,6 @@ import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 public class BookDetailActivity extends Activity {
 
 	private ProgressDialog progressDialog;
-	private TextView  detailName;
 	private ImageView detailImg;
 	private TextView  detailBookName;
 	private TextView detailAuthor;
@@ -95,10 +94,11 @@ public class BookDetailActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		  super.onCreate(savedInstanceState);
 		 
-	        requestWindowFeature(Window.FEATURE_NO_TITLE);//hidden title
+		  getActionBar().setTitle("书目详情");
+		  
+	        //requestWindowFeature(Window.FEATURE_NO_TITLE);//hidden title
 	        setContentView(R.layout.activity_book_detail);
 
-	        detailName = (TextView)this.findViewById(R.id.book_detail_name_title);
 	        detailImg = (ImageView)this.findViewById(R.id.book_detail_image);
 	        detailBookName = (TextView)this.findViewById(R.id.book_detail_name);
 	        detailAuthor = (TextView)this.findViewById(R.id.book_detail_author);
@@ -157,14 +157,13 @@ public class BookDetailActivity extends Activity {
 	            int CurrentBookAvailableQuantity = Book.getBookAvailableQuantity();
 	            bookISBNInfo = Book.getBookISBN();
 
-	            detailName.setText("书目详情");
-	            detailBookName.setText("书名:  "+Book.getBookName());
-	            detailAuthor.setText("作者:  "+Book.getBookAuthor());
-	            detailBookISBN.setText("ISBN:  "+ bookISBNInfo);
+	            detailBookName.setText(""+Book.getBookName());
+	            detailAuthor.setText(""+Book.getBookAuthor());
+	            detailBookISBN.setText("ISBN: "+ bookISBNInfo);
 	
-	            detailAllCount.setText("总数:  "+Book.getBookTotalQuantity());
-		        detailHasCount.setText("库中数量:  "+Book.getBookInStoreQuantity());
-		        detailAvailableCount.setText("可借数量:  "+CurrentBookAvailableQuantity);
+	            detailAllCount.setText(Book.getBookTotalQuantity()+"本");
+		        detailHasCount.setText(Book.getBookInStoreQuantity()+"本");
+		        detailAvailableCount.setText(CurrentBookAvailableQuantity+"本");
 		
 		        detailBookType.setText("类别:  "+Book.getBookClass());
 		        detailBookContent.setText("简介:  "+Book.getBookIntro());
@@ -175,7 +174,7 @@ public class BookDetailActivity extends Activity {
 		        String date = s.substring(0, i);
 		        detailBookPublishdate.setText("出版日期:  "+date);
 		        detailBookLanguage.setText("语言:  "+Book.getBookLanguage());
-		    	detailBookPerson.setText("贡献者:  "+Book.getBookClass());
+		    	detailBookPerson.setText("贡献者:  "+Book.getBookContributor());
 		    	detailBookPrice .setText("价格:  "+Book.getBookPrice());
 	
 		    	if (CurrentBookAvailableQuantity > 0)
