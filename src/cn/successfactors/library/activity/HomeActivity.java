@@ -9,6 +9,7 @@ import android.app.LocalActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -42,6 +43,7 @@ public class HomeActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
+		
 		context = HomeActivity.this;
 		manager = new LocalActivityManager(this, true);
 		manager.dispatchCreate(savedInstanceState);

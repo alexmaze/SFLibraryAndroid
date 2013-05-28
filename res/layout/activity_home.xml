@@ -1,64 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EEEEEE"
     android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
+        android:id="@+id/linearLayout0"
         android:layout_width="fill_parent"
-        android:layout_height="40.0dip"
-        android:background="#EEEEEE" >
+        android:layout_height="44.0dip"
+        android:background="@drawable/maintab_bg_repeat"
+        android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/text1"
+        <LinearLayout
+            android:id="@+id/linearLayout1"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:gravity="center"
-            android:text="@string/home_browser"
-            android:textColor="#000000"
-            android:textSize="18.0dip" />
+            android:layout_height="40.0dip" >
 
-        <TextView
-            android:id="@+id/text2"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:gravity="center"
-            android:text="@string/home_borrow"
-            android:textColor="#000000"
-            android:textSize="18.0dip" />
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text="@string/home_browser"
+                android:textColor="#505050"
+                android:textSize="14.0dip"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/text3"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:gravity="center"
-            android:text="@string/home_reservation"
-            android:textColor="#000000"
-            android:textSize="18.0dip" />
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text="@string/home_borrow"
+                android:textColor="#505050"
+                android:textSize="14.0dip"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/text4"
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text="@string/home_reservation"
+                android:textColor="#505050"
+                android:textSize="14.0dip"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text4"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text="@string/home_recommand"
+                android:textColor="#505050"
+                android:textSize="14.0dip"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/cursor"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:gravity="center"
-            android:text="@string/home_recommand"
-            android:textColor="#000000"
-            android:textSize="18.0dip" />
+            android:layout_height="4dip"
+            android:scaleType="matrix"
+            android:src="@drawable/roller" />
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/cursor"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="#EEEEEE"
-        android:scaleType="matrix"
-        android:src="@drawable/roller" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpage"
