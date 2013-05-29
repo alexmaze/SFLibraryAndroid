@@ -28,6 +28,9 @@ import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -58,6 +61,8 @@ public class BrowserActivity extends Activity implements OnScrollListener {
     private RelativeLayout mRefreshView; 
 
     private ProgressDialog progressDialog;
+    
+    public static BrowserActivity singleton;
 
     private final int pageNum = 30;
     TextView queryField;
@@ -74,6 +79,8 @@ public class BrowserActivity extends Activity implements OnScrollListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        singleton = this;
+        
         requestWindowFeature(Window.FEATURE_NO_TITLE);// hidden title
         setContentView(R.layout.activity_browser);
 
@@ -106,6 +113,7 @@ public class BrowserActivity extends Activity implements OnScrollListener {
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(queryField.getWindowToken(), 0);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        
     }
     
     
@@ -379,4 +387,25 @@ public class BrowserActivity extends Activity implements OnScrollListener {
         // TODO Auto-generated method stub
         
     }
+    
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		MenuInflater inflater = getMenuInflater();
+//		inflater.inflate(R.menu.actionbar_search, menu);
+//		return true;
+//	}
+//
+//	@Override
+//	public boolean onOptionsItemSelected(MenuItem item) {
+//		int item_id = item.getItemId();// 得到当前选中MenuItem的ID
+//		switch (item_id) {
+//			case R.id.menu_exit: {
+//				System.exit(0);
+//			}
+//			case R.id.menu_search: {
+//				// TODO
+//			}
+//		}
+//		return true;
+//	}
 }

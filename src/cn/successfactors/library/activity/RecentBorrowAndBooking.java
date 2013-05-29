@@ -249,24 +249,5 @@ public class RecentBorrowAndBooking extends Activity {
     	public TextView bookingPerson;
     	public TextView bookingDate;
     }
-
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.globle_menu, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		int item_id = item.getItemId();// 得到当前选中MenuItem的ID
-		switch (item_id) {
-		case R.id.menu_exit: {
-			// 事件处理代码
-			System.exit(0);
-		}
-		}
-		return true;
-	}
 	
 }
