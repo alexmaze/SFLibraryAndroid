@@ -27,7 +27,7 @@
     <string name="recommend_user">推荐人: </string>
     <string name="recommend_rate">推荐热度: </string>
     <string name="recommend_btn_title">推荐+1</string>
-    <string name="loading_all">已经浏览全部书籍</string>
+    <string name="loading_all">已经全部加载完毕</string>
     <string name="title_activity_book_detail">BookDetailActivity</string>
     <string name="title_activity_recent_borrow_and_booking">RecentBorrowAndBooking</string>
     <string name="recommend_already">您已经推荐过了</string>

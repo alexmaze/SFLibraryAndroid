@@ -30,7 +30,6 @@ import cn.successfactors.library.R;
 import cn.successfactors.library.bean.BorrowPage;
 import cn.successfactors.library.bean.SLBook;
 import cn.successfactors.library.bean.SLBorrow;
-import cn.successfactors.library.bean.SLOrder;
 import cn.successfactors.library.utils.Constants;
 import cn.successfactors.library.utils.HTTPRequestHelper;
 
@@ -74,6 +73,7 @@ public class BorrowActivity extends Activity implements OnScrollListener{
         
         adapter = new MyAdapter(this);
         lv.setAdapter(adapter);
+        lv.setDividerHeight(0);
         
         lv.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -85,11 +85,11 @@ public class BorrowActivity extends Activity implements OnScrollListener{
         		startActivity(intent);    
             }
         });
-//        SharedPreferences userInfo = getSharedPreferences(Constants.USERPREFERENCE, 0);
-//        String username = userInfo.getString(Constants.USERNAME, ""); 
-//        String url = Constants.ROOT_PATH + SUB_PATH + username + "/" + pageSize + "/1"; 
-////        String url1 = "http://192.168.25.222:8089/SFLibraryService/private/borrow/getborrowlistpage/当前记录/" + username + "/20/1";
-//        performRequest(url);
+        SharedPreferences userInfo = getSharedPreferences(Constants.USERPREFERENCE, 0);
+        String username = userInfo.getString(Constants.USERNAME, ""); 
+        String url = Constants.ROOT_PATH + SUB_PATH + username + "/" + pageSize + "/1"; 
+//        String url1 = "http://192.168.25.222:8089/SFLibraryService/private/borrow/getborrowlistpage/当前记录/" + username + "/20/1";
+        performRequest(url);
     }
 	
     private void performRequest(final String url) {

@@ -79,6 +79,7 @@ public class ReservationActivity extends Activity implements OnScrollListener {
         mRefreshView = (RelativeLayout) mInflater.inflate(R.layout.refresh_footer, null);  
         footer_text = (TextView)mRefreshView.findViewById(R.id.footer_text);
         lv.addFooterView(mRefreshView);
+        lv.setDividerHeight(0);
         lv.setOnScrollListener(this);
         
         lv.setOnItemClickListener(new OnItemClickListener() {
@@ -88,8 +89,8 @@ public class ReservationActivity extends Activity implements OnScrollListener {
             }
         });
         
-        //SharedPreferences userInfo = getSharedPreferences(Constants.USERPREFERENCE, 0);  
-        //performRequest(Constants.ROOT_PATH + SUB_PATH + userInfo.getString(Constants.USERNAME, null) + "/" + pageNum + "/" + page);
+        SharedPreferences userInfo = getSharedPreferences(Constants.USERPREFERENCE, 0);  
+        performRequest(Constants.ROOT_PATH + SUB_PATH + userInfo.getString(Constants.USERNAME, null) + "/" + pageNum + "/" + page);
     }
 	
 	@Override
