@@ -40,8 +40,9 @@
     <string name="already_order">您已预订过此书，无需重新预订。</string>
     <string name="home_reserve">预定</string>
     <string name="reserve_user">预定人：</string>
+    <string name="reserve_time">预订时间：</string>
     <string name="order_cancel_success">订单取消成功</string>
     <string name="order_cancel_fail">订单取消失败</string>
-    <string name="borrow_date">借书日期 </string>
-    <string name="due_date">应还日期 </string>
+    <string name="borrow_date">借书日期：</string>
+    <string name="due_date">应还日期：</string>
 </resources>

@@ -64,7 +64,7 @@ public class ReservationActivity extends Activity implements OnScrollListener {
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);//hidden title
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);//hidden title
         setContentView(R.layout.activity_reservation);
         
         lv = (ListView)findViewById(R.id.reserveLv);
@@ -203,7 +203,7 @@ public class ReservationActivity extends Activity implements OnScrollListener {
             holder.author.setText(order.getTheBook().getBookAuthor());
             UrlImageViewHelper.setUrlDrawable(holder.image, order.getTheBook().getBookPicUrl());
             holder.orderUser.setText(getResources().getString(R.string.reserve_user) + order.getTheUser().getUserName());
-            holder.orderDate.setText(order.getOrderDate());
+            holder.orderDate.setText(getResources().getString(R.string.reserve_time) + order.getOrderDate());
             
             return convertView;
         }
