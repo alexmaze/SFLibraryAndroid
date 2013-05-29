@@ -61,6 +61,7 @@ public class RecommendActivity extends Activity implements OnScrollListener {
         
         adapter = new MyAdapter(this);
         lv.setAdapter(adapter);
+        lv.setDividerHeight(0);
         
         LayoutInflater mInflater = (LayoutInflater) this.getApplicationContext().getSystemService(   
                 Context.LAYOUT_INFLATER_SERVICE);  
