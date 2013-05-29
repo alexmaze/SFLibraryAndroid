@@ -1,144 +1,144 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/google_now_background_color"
+    android:orientation="vertical" >
 
-    <RelativeLayout
-        android:id="@+id/top_layout_recdetail"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/black" >
+        android:orientation="horizontal" >
 
-        <TextView
-            android:id="@+id/recdetail_name"
-            android:lines="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="10dip"
-            android:layout_marginLeft="10dip"
-            android:background="@color/black"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/white" />
-    </RelativeLayout>
-
-    <Button
-        android:id="@+id/recdetailBtn"
-        android:layout_width="fill_parent"
-        android:layout_height="50dip"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="30dip"
-        android:layout_marginRight="30dip" 
-        android:layout_marginBottom="10dip"
-        android:text="@string/recommend_btn_title"
-        android:textStyle="bold"
-        android:drawableLeft="@drawable/approve_inline"/>
-
-    <ScrollView
-        android:id="@+id/recdetail_content"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_above="@id/recdetailBtn"
-        android:layout_below="@id/top_layout_recdetail" >
+        <ImageView
+            android:id="@+id/recdetail_image"
+            android:layout_width="106dp"
+            android:layout_height="144dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@string/hello_world"
+            android:scaleType="centerInside" />
 
         <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dip"
-            android:layout_marginLeft="10dip"
-            android:layout_marginRight="10dip"
-            android:layout_marginTop="10dip"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
             android:orientation="vertical" >
 
+            <TextView
+                android:id="@+id/recdetail_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dip"
+                android:textColor="#333333"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/recdetail_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dip"
+                android:textColor="#777777"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/recdetail_recuser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dip"
+                android:textColor="#777777"
+                android:textSize="14sp"
+                android:textStyle="italic" />
+
             <LinearLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" 
-                android:layout_marginBottom="10dip">
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal" >
 
                 <ImageView
-                    android:id="@+id/recdetail_image"
-                    android:layout_width="160dip"
-                    android:layout_height="200dip"
-                    android:contentDescription="@string/hello_world" />
+                    android:id="@+id/recommendDetailBookHot1"
+                    android:layout_width="18dip"
+                    android:layout_height="18dip"
+                    android:contentDescription="@string/hello_world"
+                    android:src="@drawable/burn" />
 
-                <LinearLayout
-                    xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingLeft="5dip" >
+                <ImageView
+                    android:id="@+id/recommendDetailBookHot2"
+                    android:layout_width="18dip"
+                    android:layout_height="18dip"
+                    android:contentDescription="@string/hello_world"
+                    android:src="@drawable/burn" />
 
-                    <TextView
-                        android:id="@+id/recdetail_author"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dip" />
+                <ImageView
+                    android:id="@+id/recommendDetailBookHot3"
+                    android:layout_width="18dip"
+                    android:layout_height="18dip"
+                    android:contentDescription="@string/hello_world"
+                    android:src="@drawable/burn" />
 
-                    <TextView
-                        android:id="@+id/recdetail_recuser"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" 
-                        android:layout_marginBottom="5dip" />
+                <ImageView
+                    android:id="@+id/recommendDetailBookHot4"
+                    android:layout_width="18dip"
+                    android:layout_height="18dip"
+                    android:contentDescription="@string/hello_world"
+                    android:src="@drawable/burn" />
 
-                    <LinearLayout
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
+                <ImageView
+                    android:id="@+id/recommendDetailBookHot5"
+                    android:layout_width="18dip"
+                    android:layout_height="18dip"
+                    android:contentDescription="@string/hello_world"
+                    android:src="@drawable/burn" />
 
-                        <ImageView
-                            android:id="@+id/recommendDetailBookHot1"
-                            android:layout_width="15dip"
-                            android:layout_height="15dip"
-                            android:contentDescription="@string/hello_world"
-                            android:src="@drawable/burn" 
-                            android:visibility="gone"/>
-
-                        <ImageView
-                            android:id="@+id/recommendDetailBookHot2"
-                            android:layout_width="15dip"
-                            android:layout_height="15dip"
-                            android:contentDescription="@string/hello_world"
-                            android:src="@drawable/burn" 
-                            android:visibility="gone"/>
-
-                        <ImageView
-                            android:id="@+id/recommendDetailBookHot3"
-                            android:layout_width="15dip"
-                            android:layout_height="15dip"
-                            android:contentDescription="@string/hello_world"
-                            android:src="@drawable/burn" 
-                            android:visibility="gone"/>
-
-                        <ImageView
-                            android:id="@+id/recommendDetailBookHot4"
-                            android:layout_width="15dip"
-                            android:layout_height="15dip"
-                            android:contentDescription="@string/hello_world"
-                            android:src="@drawable/burn" 
-                            android:visibility="gone"/>
-
-                        <ImageView
-                            android:id="@+id/recommendDetailBookHot5"
-                            android:layout_width="15dip"
-                            android:layout_height="15dip"
-                            android:contentDescription="@string/hello_world"
-                            android:src="@drawable/burn" 
-                            android:visibility="gone"/>
-                    </LinearLayout>
-                </LinearLayout>
+                <Button
+                    android:id="@+id/recdetailBtn"
+                    android:layout_width="60dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/no_round_btn_plusone"
+                    android:text="@string/recommend_btn_title"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp" />
             </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/recommend_detail_filte_line"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#3f9fe0"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="2dip"
+        android:layout_marginTop="3dip"
+        android:padding="5dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="5dip"
+            android:orientation="vertical"
+            android:paddingBottom="8dip"
+            android:paddingLeft="5dip" >
 
             <TextView
                 android:id="@+id/recdetail_detail"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" 
-                android:layout_marginBottom="10dip"/>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dip"
+                android:layout_marginTop="6dip"
+                android:textColor="#777777" />
         </LinearLayout>
     </ScrollView>
 
-</RelativeLayout>
+</LinearLayout>

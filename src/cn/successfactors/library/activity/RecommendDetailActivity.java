@@ -60,7 +60,7 @@ public class RecommendDetailActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);//hidden title
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);//hidden title
         setContentView(R.layout.activity_recommend_detail);
 
         detailName = (TextView)this.findViewById(R.id.recdetail_name);
