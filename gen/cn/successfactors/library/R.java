@@ -232,6 +232,8 @@ public final class R {
     }
     public static final class style {
         public static final int AppTheme=0x7f070000;
+        public static final int customActionBarStyle=0x7f070002;
+        public static final int custonActionBarTitleTextStyle=0x7f070003;
         public static final int main_tab_bottom=0x7f070001;
     }
 }

@@ -1,17 +1,31 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="AppTheme" parent="android:Theme.Holo.Light" />
-<style name="main_tab_bottom">
-	<item name="android:textSize">@dimen/bottom_tab_font_size</item>
-    <item name="android:textColor">#ffffffff</item>
-    <item name="android:ellipsize">marquee</item>
-    <item name="android:gravity">center_horizontal</item>
-    <item name="android:paddingTop">@dimen/bottom_tab_padding_up</item>
-    <item name="android:layout_width">fill_parent</item>
-    <item name="android:layout_height">wrap_content</item>
-    <item name="android:button">@null</item>
-    <item name="android:singleLine">true</item>
-    <item name="android:drawablePadding">@dimen/bottom_tab_padding_drawable</item>
-    <item name="android:layout_weight">1.0</item>
-</style>
+    <style name="AppTheme" parent="android:Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/customActionBarStyle</item>
+    </style>
+
+    <style name="main_tab_bottom">
+        <item name="android:textSize">@dimen/bottom_tab_font_size</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:paddingTop">@dimen/bottom_tab_padding_up</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">@dimen/bottom_tab_padding_drawable</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+    
+    <style name="customActionBarStyle" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">#3f9fe0</item>
+        <item name="android:titleTextStyle">@style/custonActionBarTitleTextStyle</item>
+    </style>
+    
+    
+    <style name="custonActionBarTitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
 </resources>

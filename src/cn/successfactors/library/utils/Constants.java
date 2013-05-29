@@ -2,7 +2,7 @@ package cn.successfactors.library.utils;
 
 public final class Constants {
     
-    public final static String ROOT_PATH= "http://10.11.48.118/sflibrary/webservice/";
+    public final static String ROOT_PATH= "http://cdi.tongji.edu.cn/sflibrary/webservice/";
     
     public final static String SESSIONKEY= "seessionKey";
     public final static String USERNAME= "userName";

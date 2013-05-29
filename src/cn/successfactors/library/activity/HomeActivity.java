@@ -60,13 +60,13 @@ public class HomeActivity extends Activity {
 		
 	}
 
-//	@Override
-//	public void onWindowFocusChanged(boolean hasFocus) {
-//		super.onWindowFocusChanged(hasFocus);
-//
-//		View qrcodeMenuItem = findViewById(R.id.menu_qrcode);
-//		qrcodeMenuItem.setVisibility(8);
-//	}
+	@Override
+	public void onWindowFocusChanged(boolean hasFocus) {
+		super.onWindowFocusChanged(hasFocus);
+
+		View qrcodeMenuItem = findViewById(R.id.menu_qrcode);
+		qrcodeMenuItem.setVisibility(8);
+	}
 	
 
 	/** * 初始化标题 */

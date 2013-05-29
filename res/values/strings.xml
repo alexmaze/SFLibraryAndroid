@@ -3,7 +3,7 @@
     <string name="app_name">Minerva\'s Library</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_exit">退出</string>
-    <string name="menu_search">搜索</string>
+    <string name="menu_search">搜索书库</string>
     <string name="menu_qrcode">扫码推荐</string>
     <string name="login_email">帐号</string>
     <string name="login_password">密码</string>
