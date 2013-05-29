@@ -9,6 +9,11 @@
         android:targetSdkVersion="16" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.VIBRATE"/>
+<uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -20,6 +25,7 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -54,6 +60,14 @@
         <activity
             android:name="cn.successfactors.library.activity.RecentBorrowAndBooking"
             android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.successfactors.library.activity.QRCodeCameraRecommendActivity"
+            android:label="@string/title_activity_qrcode_camera_recommend"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.zijunlin.Zxing.Demo.CaptureActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
         </activity>
     </application>
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
+
     <string name="app_name">Minerva\'s Library</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_exit">退出</string>
@@ -29,6 +30,8 @@
     <string name="recommend_user">推荐人: </string>
     <string name="recommend_rate">推荐热度: </string>
     <string name="recommend_btn_title">推荐+1</string>
+    <string name="qr_recommend_btn_title">确认推荐</string>
+    <string name="qr_recommend_info">图书信息来自豆瓣API</string>
     <string name="loading_all">已经全部加载完毕</string>
     <string name="title_activity_book_detail">BookDetailActivity</string>
     <string name="title_activity_recent_borrow_and_booking">RecentBorrowAndBooking</string>
@@ -47,4 +50,7 @@
     <string name="order_cancel_fail">订单取消失败</string>
     <string name="borrow_date">借书日期：</string>
     <string name="due_date">应还日期：</string>
+    <string name="title_activity_qrcode_camera_recommend">扫码推荐</string>
+    <string name="action_settings">Settings</string>
+
 </resources>

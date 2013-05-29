@@ -3,6 +3,8 @@ package cn.successfactors.library.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.zijunlin.Zxing.Demo.CaptureActivity;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.LocalActivityManager;
@@ -283,24 +285,26 @@ public class HomeActivity extends Activity {
 		switch (item_id) {
 			case R.id.menu_exit: {
 				System.exit(0);
+				break;
 			}
 			case R.id.menu_search: {
-				// TODO
 				if (isSearchBarShow) {
 					isSearchBarShow = false;
-					
 					View searchBar = BrowserActivity.singleton.findViewById(R.id.top_layout);
 					searchBar.setVisibility(8);
 					
 				} else {
 					isSearchBarShow = true;
-
 					View searchBar = BrowserActivity.singleton.findViewById(R.id.top_layout);
 					searchBar.setVisibility(0);
 				}
+				break;
 			}
 			case R.id.menu_qrcode: {
-				
+				Intent scanint=new Intent();
+				scanint.setClass(HomeActivity.this,CaptureActivity.class);
+				startActivityForResult(scanint, 0);
+				break;
 			}
 		}
 		return true;
