@@ -1,4 +1,3 @@
-
 package cn.successfactors.library.activity;
 
 import java.util.ArrayList;
@@ -18,6 +17,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.DisplayMetrics;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -43,9 +43,9 @@ public class HomeActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
-		
+
 		// TODO getActionBar();
-		
+
 		context = HomeActivity.this;
 		manager = new LocalActivityManager(this, true);
 		manager.dispatchCreate(savedInstanceState);
@@ -79,7 +79,7 @@ public class HomeActivity extends Activity {
 
 		Intent intent3 = new Intent(context, ReservationActivity.class);
 		list.add(getView("C", intent3));
-		
+
 		Intent intent4 = new Intent(context, RecommendActivity.class);
 		list.add(getView("D", intent4));
 
@@ -104,7 +104,19 @@ public class HomeActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_book_detail, menu);
+		getMenuInflater().inflate(R.menu.globle_menu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int item_id = item.getItemId();// 得到当前选中MenuItem的ID
+		switch (item_id) {
+		case R.id.menu_exit: {
+			// 事件处理代码
+			System.exit(0);
+		}
+		}
 		return true;
 	}
 
@@ -235,6 +247,5 @@ public class HomeActivity extends Activity {
 			pager.setCurrentItem(index);
 		}
 	};
-
 
 }

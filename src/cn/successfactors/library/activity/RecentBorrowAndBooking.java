@@ -28,6 +28,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -248,11 +249,23 @@ public class RecentBorrowAndBooking extends Activity {
     	public TextView bookingPerson;
     	public TextView bookingDate;
     }
+
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_recent_borrow_and_booking,
-				menu);
+		getMenuInflater().inflate(R.menu.globle_menu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int item_id = item.getItemId();// 得到当前选中MenuItem的ID
+		switch (item_id) {
+		case R.id.menu_exit: {
+			// 事件处理代码
+			System.exit(0);
+		}
+		}
 		return true;
 	}
 	

@@ -21,6 +21,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -128,7 +130,7 @@ public class RecommendDetailActivity extends Activity {
 
             detailName.setText(recBook.getBookName());
             detailAuthor.setText(recBook.getBookAuthor());
-            detailContent.setText(recBook.getBookIntro());
+            detailContent.setText("简介：" + recBook.getBookIntro());
             detailRecUser.setText(getResources().getString(R.string.recommend_user) + recBook.getRecUserName());
             UrlImageViewHelper.setUrlDrawable(detailImg, recBook.getBookPicUrl());
             
@@ -197,6 +199,24 @@ public class RecommendDetailActivity extends Activity {
             }
         }
     };
-    
+
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.globle_menu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int item_id = item.getItemId();// 得到当前选中MenuItem的ID
+		switch (item_id) {
+		case R.id.menu_exit: {
+			// 事件处理代码
+			System.exit(0);
+		}
+		}
+		return true;
+	}
 
 }
