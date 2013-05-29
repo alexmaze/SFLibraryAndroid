@@ -42,7 +42,6 @@ import android.widget.AdapterView.OnItemClickListener;
 public class RecentBorrowAndBooking extends Activity {
 
 	private ProgressDialog progressDialog;
-	private TextView  detailName;
 	private TextView  titleName1;
 	private TextView  titleName2;
 	
@@ -60,14 +59,12 @@ public class RecentBorrowAndBooking extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);//hidden title
+		//requestWindowFeature(Window.FEATURE_NO_TITLE);//hidden title
 		setContentView(R.layout.activity_recent_borrow_and_booking);
-		 detailName = (TextView)this.findViewById(R.id.book_name_title);
-		 detailName.setText("当前借阅与预订");
 		 titleName1 = (TextView)this.findViewById(R.id.book_borrow_listtitle1);
-		 titleName1.setText("当前借阅");
+		 titleName1.setText("当前借阅列表");
 		 titleName2 = (TextView)this.findViewById(R.id.book_borrow_listtitle2);
-		 titleName2.setText("预订");
+		 titleName2.setText("当前预订队列");
 				 
 		 lv1 = (ListView)findViewById(R.id.recent_borrow_lv);
 	        //add this before set adapter

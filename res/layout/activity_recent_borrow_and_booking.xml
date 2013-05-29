@@ -5,77 +5,78 @@
     android:layout_height="match_parent" >
 
     <RelativeLayout
-        android:id="@+id/top_layout_borrow_view"
+        android:id="@+id/book_borrow_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:background="@color/black" >
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_round_corner"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" >
 
-        <TextView
-            android:id="@+id/book_name_title"
-            android:lines="1"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="10dip"
-            android:layout_marginLeft="10dip"
-            android:background="@color/black"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/white" />
-    </RelativeLayout>
-    <RelativeLayout
- 	    		android:id="@+id/book_borrow_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-          		android:layout_below="@id/top_layout_borrow_view"
-                android:orientation="horizontal" 
-                android:layout_marginBottom="10dip"
-                android:layout_marginLeft = "20dip"
-                android:layout_marginTop="20dip"
-                >
-       		 <LinearLayout
-       		          android:layout_width="match_parent"
-         	  		  android:layout_height="wrap_content"
-         	  		  android:orientation="vertical"
-            >
+            android:orientation="vertical" >
+
             <TextView
-			                android:id="@+id/book_borrow_listtitle1"
-			                android:layout_width="wrap_content"
-			                android:layout_height="wrap_content" 
-			                android:layout_marginBottom="10dip"/>
-            <ListView 	android:id="@+id/recent_borrow_lv" 
-				        android:layout_width="fill_parent"
-				        android:layout_height="fill_parent"  
-				        android:listSelector="@android:color/transparent" 
-        	></ListView>
-       		     
-			</LinearLayout>
-	</RelativeLayout>
-	<RelativeLayout
- 	    		android:id="@+id/book_booking_view"
-                android:layout_width="match_parent"
+                android:id="@+id/book_borrow_listtitle1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-          		android:layout_below="@id/book_borrow_view"
-                android:orientation="horizontal" 
                 android:layout_marginBottom="10dip"
-                android:layout_marginLeft = "20dip"
-                android:layout_marginTop="20dip"
-                >
-				<LinearLayout
-				      android:layout_width="match_parent"
-         	  		  android:layout_height="wrap_content"
-         	  		  android:orientation="vertical"
-            >
-              <TextView
-			                android:id="@+id/book_borrow_listtitle2"
-			                android:layout_width="wrap_content"
-			                android:layout_height="wrap_content" 
-			                android:layout_marginBottom="10dip"/>
-            <ListView 	android:id="@+id/recent_booking_lv" 
-        				android:layout_width="fill_parent"
-       				 	android:layout_height="fill_parent"  
-        				android:listSelector="@android:color/transparent" 
-        ></ListView>
-			</LinearLayout>
-	</RelativeLayout> 
- </RelativeLayout>
+                android:textColor="#333333"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ListView
+                android:id="@+id/recent_borrow_lv"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="5dp"
+                android:textSize="16sp"
+                android:listSelector="@android:color/transparent" >
+            </ListView>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/book_booking_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_round_corner"
+        android:layout_below="@id/book_borrow_view"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/book_borrow_listtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dip"
+                android:textColor="#333333"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ListView
+                android:id="@+id/recent_booking_lv"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:textSize="16sp"
+                android:layout_margin="5dp"
+                android:listSelector="@android:color/transparent" >
+            </ListView>
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

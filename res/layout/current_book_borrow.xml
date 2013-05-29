@@ -15,7 +15,7 @@
         android:id="@+id/borrow_date"
         android:layout_width="100dip"
         android:layout_height="wrap_content"
-       android:layout_marginLeft="10dip"
+       android:layout_marginLeft="5dip"
         android:lines="1"
         android:textAppearance="?android:attr/textAppearanceSmall"
         />
@@ -23,7 +23,7 @@
         android:id="@+id/return_date"
         android:layout_width="100dip"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dip"
+        android:layout_marginLeft="5dip"
         android:lines="1"
         android:textAppearance="?android:attr/textAppearanceSmall"
         />
