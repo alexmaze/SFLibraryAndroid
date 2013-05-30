@@ -6,13 +6,13 @@ import java.util.List;
 import org.apache.http.client.ResponseHandler;
 
 import com.google.gson.Gson;
-import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
 import cn.successfactors.library.R;
 import cn.successfactors.library.bean.RecommendedBookPage;
 import cn.successfactors.library.bean.SLRecommendedBook;
 import cn.successfactors.library.utils.Constants;
 import cn.successfactors.library.utils.HTTPRequestHelper;
+import cn.successfactors.library.utils.imagehelper.UrlImageViewHelper;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;

@@ -3,15 +3,11 @@ package cn.successfactors.library.activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.zijunlin.Zxing.Demo.CaptureActivity;
-
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.LocalActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.Matrix;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -42,24 +38,24 @@ public class HomeActivity extends Activity {
 	private int currIndex = 0;// 当前页卡编号
 	private int bmpW;// 动画图片宽度
 	private ImageView cursor;// 动画图片
-	
+
 	private boolean isSearchBarShow = false;
-    
-    public static HomeActivity singleton;
+
+	public static HomeActivity singleton;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		singleton = this;
 		setContentView(R.layout.activity_home);
-		
+
 		context = HomeActivity.this;
 		manager = new LocalActivityManager(this, true);
 		manager.dispatchCreate(savedInstanceState);
 		InitImageView();
 		initTextView();
 		initPagerViewer();
-		
+
 	}
 
 	@Override
@@ -69,7 +65,6 @@ public class HomeActivity extends Activity {
 		View qrcodeMenuItem = findViewById(R.id.menu_qrcode);
 		qrcodeMenuItem.setVisibility(8);
 	}
-	
 
 	/** * 初始化标题 */
 	private void initTextView() {
@@ -103,7 +98,7 @@ public class HomeActivity extends Activity {
 		pager.setAdapter(new MyPagerAdapter(list));
 		pager.setCurrentItem(0);
 		pager.setOnPageChangeListener(new MyOnPageChangeListener());
-		
+
 	}
 
 	/** * 初始化动画 */
@@ -155,7 +150,7 @@ public class HomeActivity extends Activity {
 		public Object instantiateItem(View arg0, int arg1) {
 			ViewPager pViewPager = ((ViewPager) arg0);
 			pViewPager.addView(list.get(arg1));
-			
+
 			return list.get(arg1);
 		}
 
@@ -184,13 +179,13 @@ public class HomeActivity extends Activity {
 			Animation animation = null;
 			View searchMenuItem = findViewById(R.id.menu_search);
 			View qrcodeMenuItem = findViewById(R.id.menu_qrcode);
-			
+
 			switch (arg0) {
 			case 0:
-				
+
 				searchMenuItem.setVisibility(0);
 				qrcodeMenuItem.setVisibility(8);
-				
+
 				if (currIndex == 1) {
 					animation = new TranslateAnimation(one, 0, 0, 0);
 				} else if (currIndex == 2) {
@@ -203,7 +198,7 @@ public class HomeActivity extends Activity {
 
 				searchMenuItem.setVisibility(8);
 				qrcodeMenuItem.setVisibility(8);
-				
+
 				if (currIndex == 0) {
 					animation = new TranslateAnimation(offset, one, 0, 0);
 				} else if (currIndex == 2) {
@@ -216,7 +211,7 @@ public class HomeActivity extends Activity {
 
 				searchMenuItem.setVisibility(8);
 				qrcodeMenuItem.setVisibility(8);
-				
+
 				if (currIndex == 0) {
 					animation = new TranslateAnimation(offset, two, 0, 0);
 				} else if (currIndex == 1) {
@@ -229,7 +224,7 @@ public class HomeActivity extends Activity {
 
 				searchMenuItem.setVisibility(8);
 				qrcodeMenuItem.setVisibility(0);
-				
+
 				if (currIndex == 0) {
 					animation = new TranslateAnimation(offset, three, 0, 0);
 				} else if (currIndex == 1) {
@@ -268,14 +263,13 @@ public class HomeActivity extends Activity {
 		}
 	};
 
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.globle_menu, menu);
 		inflater.inflate(R.menu.actionbar_search, menu);
 		inflater.inflate(R.menu.actionbar_qrcode, menu);
-		
+
 		return true;
 	}
 
@@ -283,29 +277,31 @@ public class HomeActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int item_id = item.getItemId();// 得到当前选中MenuItem的ID
 		switch (item_id) {
-			case R.id.menu_exit: {
-				System.exit(0);
-				break;
+		case R.id.menu_exit: {
+			System.exit(0);
+			break;
+		}
+		case R.id.menu_search: {
+			if (isSearchBarShow) {
+				isSearchBarShow = false;
+				View searchBar = BrowserActivity.singleton
+						.findViewById(R.id.top_layout);
+				searchBar.setVisibility(8);
+
+			} else {
+				isSearchBarShow = true;
+				View searchBar = BrowserActivity.singleton
+						.findViewById(R.id.top_layout);
+				searchBar.setVisibility(0);
 			}
-			case R.id.menu_search: {
-				if (isSearchBarShow) {
-					isSearchBarShow = false;
-					View searchBar = BrowserActivity.singleton.findViewById(R.id.top_layout);
-					searchBar.setVisibility(8);
-					
-				} else {
-					isSearchBarShow = true;
-					View searchBar = BrowserActivity.singleton.findViewById(R.id.top_layout);
-					searchBar.setVisibility(0);
-				}
-				break;
-			}
-			case R.id.menu_qrcode: {
-				Intent scanint=new Intent();
-				scanint.setClass(HomeActivity.this,CaptureActivity.class);
-				startActivityForResult(scanint, 0);
-				break;
-			}
+			break;
+		}
+		case R.id.menu_qrcode: {
+			Intent scanint = new Intent();
+			scanint.setClass(HomeActivity.this, CaptureActivity.class);
+			startActivityForResult(scanint, 0);
+			break;
+		}
 		}
 		return true;
 	}

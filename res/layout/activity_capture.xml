@@ -9,7 +9,7 @@
                android:layout_height="fill_parent"
                android:layout_centerInParent="true"/>
 
-  <com.zijunlin.Zxing.Demo.view.ViewfinderView
+  <cn.successfactors.library.zxing.view.ViewfinderView
       android:id="@+id/viewfinder_view"
       android:layout_width="fill_parent"
       android:layout_height="fill_parent"

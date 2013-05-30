@@ -67,7 +67,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.zijunlin.Zxing.Demo.CaptureActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
+            android:name="cn.successfactors.library.activity.CaptureActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
         </activity>
     </application>
 
