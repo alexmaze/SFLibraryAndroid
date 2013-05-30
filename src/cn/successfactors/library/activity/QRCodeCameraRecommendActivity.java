@@ -119,7 +119,7 @@ public class QRCodeCameraRecommendActivity extends Activity {
 
             detailName.setText(recBook.getBookName());
             detailAuthor.setText(recBook.getBookAuthor());
-            detailContent.setText("ç®€ä»‹ï¼š" + recBook.getBookIntro());
+            detailContent.setText("¼ò½é:"+ recBook.getBookIntro());
             UrlImageViewHelper.setUrlDrawable(detailImg, recBook.getBookPicUrl());
             
         }

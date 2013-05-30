@@ -130,7 +130,7 @@ public class RecommendDetailActivity extends Activity {
 
             detailName.setText(recBook.getBookName());
             detailAuthor.setText(recBook.getBookAuthor());
-            detailContent.setText("ç®€ä»‹ï¼š" + recBook.getBookIntro());
+            detailContent.setText("¼ò½é:"+ recBook.getBookIntro());
             detailRecUser.setText(getResources().getString(R.string.recommend_user) + recBook.getRecUserName());
             UrlImageViewHelper.setUrlDrawable(detailImg, recBook.getBookPicUrl());
             
