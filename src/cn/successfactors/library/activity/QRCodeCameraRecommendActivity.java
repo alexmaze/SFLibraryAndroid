@@ -136,7 +136,7 @@ public class QRCodeCameraRecommendActivity extends Activity {
             Gson gson = new Gson();
             
             HttpPut httpput = new HttpPut(Constants.ROOT_PATH + RECOMMEND_SUB_PATH);
-            StringEntity se = new StringEntity(gson.toJson(recBook));   
+            StringEntity se = new StringEntity(gson.toJson(recBook), "UTF-8");
             httpput.setEntity(se);
             HttpResponse response = httpclient.execute(httpput);
 
