@@ -9,10 +9,12 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -50,6 +52,9 @@ public class RecentBorrowAndBooking extends Activity {
 		super.onCreate(savedInstanceState);
 		// requestWindowFeature(Window.FEATURE_NO_TITLE);//hidden title
 		setContentView(R.layout.activity_recent_borrow_and_booking);
+		getActionBar().setTitle("当前借阅与预订");
+		getActionBar().setDisplayHomeAsUpEnabled(true);  
+		
 		titleName1 = (TextView) this.findViewById(R.id.book_borrow_listtitle1);
 		titleName1.setText("当前借阅列表");
 		titleName2 = (TextView) this.findViewById(R.id.book_borrow_listtitle2);
@@ -249,5 +254,19 @@ public class RecentBorrowAndBooking extends Activity {
 		public TextView bookingPerson;
 		public TextView bookingDate;
 	}
-
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int item_id = item.getItemId();
+		switch (item_id) {
+		case android.R.id.home: {
+			Intent scanint = new Intent();
+			scanint.setClass(RecentBorrowAndBooking.this, HomeActivity.class);
+			scanint.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivityForResult(scanint, 0);
+			break;
+		}
+		}
+		return true;
+	}
 }

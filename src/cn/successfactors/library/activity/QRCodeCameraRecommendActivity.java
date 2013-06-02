@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -57,6 +58,9 @@ public class QRCodeCameraRecommendActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_qrcode_camera_recommend);
 
+		getActionBar().setTitle("È·ÈÏÍÆ¼ö");
+		getActionBar().setDisplayHomeAsUpEnabled(true); 
+		
 		Intent theIntent = getIntent();
 		bookISBN = theIntent.getStringExtra("bookISBN");
 
@@ -194,5 +198,20 @@ public class QRCodeCameraRecommendActivity extends Activity {
 			}
 		}
 	};
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int item_id = item.getItemId();
+		switch (item_id) {
+		case android.R.id.home: {
+			Intent scanint = new Intent();
+			scanint.setClass(QRCodeCameraRecommendActivity.this, HomeActivity.class);
+			scanint.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivityForResult(scanint, 0);
+			break;
+		}
+		}
+		return true;
+	}
 
 }

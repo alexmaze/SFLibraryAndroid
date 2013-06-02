@@ -15,11 +15,13 @@ import org.json.JSONObject;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -59,6 +61,8 @@ public class RecommendDetailActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		// requestWindowFeature(Window.FEATURE_NO_TITLE);//hidden title
 		setContentView(R.layout.activity_recommend_detail);
+		getActionBar().setTitle("ÍÆ¼öÏêÇé");
+		getActionBar().setDisplayHomeAsUpEnabled(true); 
 
 		detailName = (TextView) this.findViewById(R.id.recdetail_name);
 		detailRecUser = (TextView) this.findViewById(R.id.recdetail_recuser);
@@ -214,5 +218,20 @@ public class RecommendDetailActivity extends Activity {
 			}
 		}
 	};
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int item_id = item.getItemId();
+		switch (item_id) {
+		case android.R.id.home: {
+			Intent scanint = new Intent();
+			scanint.setClass(RecommendDetailActivity.this, HomeActivity.class);
+			scanint.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivityForResult(scanint, 0);
+			break;
+		}
+		}
+		return true;
+	}
 
 }

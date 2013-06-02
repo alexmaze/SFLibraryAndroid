@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -93,10 +94,11 @@ public class BookDetailActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		getActionBar().setTitle("书目详情");
-
 		// requestWindowFeature(Window.FEATURE_NO_TITLE);//hidden title
 		setContentView(R.layout.activity_book_detail);
+
+		getActionBar().setTitle("书目详情");
+		getActionBar().setDisplayHomeAsUpEnabled(true);  
 
 		detailImg = (ImageView) this.findViewById(R.id.book_detail_image);
 		detailBookName = (TextView) this.findViewById(R.id.book_detail_name);
@@ -299,5 +301,20 @@ public class BookDetailActivity extends Activity {
 			}
 		}
 	};
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int item_id = item.getItemId();
+		switch (item_id) {
+		case android.R.id.home: {
+			Intent scanint = new Intent();
+			scanint.setClass(BookDetailActivity.this, HomeActivity.class);
+			scanint.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivityForResult(scanint, 0);
+			break;
+		}
+		}
+		return true;
+	}
 
 }
